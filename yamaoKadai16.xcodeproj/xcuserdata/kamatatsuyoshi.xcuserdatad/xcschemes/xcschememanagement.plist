@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>yamaoKadai14.xcscheme_^#shared#^_</key>
+		<key>yamaoKadai14.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,9 +14,14 @@
 		<key>yamaoKadai15.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>yamaoKadai16.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

@@ -27,17 +27,17 @@
         <!--Table View Controller-->
         <scene sceneID="372-Fk-HFC">
             <objects>
-                <tableViewController id="oBZ-qn-8aQ" customClass="TableViewController" customModule="yamaoKadai14" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oBZ-qn-8aQ" customClass="TableViewController" customModule="yamaoKadai16" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YvE-Xz-R0q">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell1" id="ma3-DJ-O1D" userLabel="Cell1" customClass="ItemTableViewCell" customModule="yamaoKadai14" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell1" id="ma3-DJ-O1D" userLabel="Cell1" customClass="ItemTableViewCell" customModule="yamaoKadai16" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ma3-DJ-O1D" id="vSp-Oe-j4y" customClass="ItemTableViewCell" customModule="yamaoKadai14" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ma3-DJ-O1D" id="vSp-Oe-j4y" customClass="ItemTableViewCell" customModule="yamaoKadai16" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="349" height="44.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yN-dS-me3">
@@ -67,10 +67,13 @@
                     <navigationItem key="navigationItem" id="pXP-Az-CrW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Jz-7m-QGS">
                             <connections>
-                                <segue destination="0pp-GY-PNl" kind="presentation" id="9MB-ow-8ay"/>
+                                <segue destination="0pp-GY-PNl" kind="presentation" identifier="AddSegue" id="YU6-lH-U2j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0pp-GY-PNl" kind="presentation" identifier="EditSegue" id="fk2-Vk-gDB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUY-8F-qjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,12 +93,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFZ-Oy-I9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="601" y="245"/>
+            <point key="canvasLocation" x="628" y="202"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="5IM-Rr-nms">
             <objects>
-                <viewController id="OlG-s6-beR" customClass="AddItemViewController" customModule="yamaoKadai14" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OlG-s6-beR" customClass="AddItemViewController" customModule="yamaoKadai16" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nql-cH-CSs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,25 +123,32 @@
                     <navigationItem key="navigationItem" id="fsi-m1-1ug">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="828-qa-WXo">
                             <connections>
-                                <segue destination="NBO-ZG-7cc" kind="unwind" unwindAction="exitFromAddByCancelWithSegue:" id="Ps7-tA-0Na"/>
+                                <action selector="pressCancelButtonWithSender:" destination="OlG-s6-beR" id="ZXN-TE-lXm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8UE-Ih-abw">
                             <connections>
-                                <segue destination="NBO-ZG-7cc" kind="unwind" unwindAction="exitFromAddBySaveWithSegue:" id="m3b-uS-PGX"/>
+                                <action selector="pressSaveButtonWithSender:" destination="OlG-s6-beR" id="55U-ia-dOM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="LpS-B3-gsd" id="OFa-gl-0jg"/>
+                        <segue destination="NBO-ZG-7cc" kind="unwind" identifier="exitFromAddByCancelSegue" unwindAction="exitFromAddByCancelWithSegue:" id="iXM-tb-mgM"/>
+                        <segue destination="NBO-ZG-7cc" kind="unwind" identifier="exitFromAddBySaveSegue" unwindAction="exitFromAddBySaveWithSegue:" id="tsy-Jt-EG8"/>
+                        <segue destination="NBO-ZG-7cc" kind="unwind" identifier="exitFromEditByCancelSegue" unwindAction="exitFromEditByCancelWithSegue:" id="ea6-H3-z0H"/>
+                        <segue destination="NBO-ZG-7cc" kind="unwind" identifier="exitFromEditBySaveSegue" unwindAction="exitFromEditBySaveWithSegue:" id="vw7-hS-IZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7E-hO-wmZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NBO-ZG-7cc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1412.9770992366412" y="243.66197183098592"/>
+            <point key="canvasLocation" x="1491" y="201"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fk2-Vk-gDB"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
