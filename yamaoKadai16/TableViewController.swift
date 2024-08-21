@@ -6,7 +6,7 @@ class TableViewController: UITableViewController {
     let keyName = "Name"
     let keyCheck = "Check"
     
-    var items: [Dictionary<String,Any>] = []
+    var items: [[String: Any]] = []
     
     var editIndexPath: IndexPath?
     
@@ -14,10 +14,10 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.items = [
-            [keyName:"りんご", keyCheck:false],
-            [keyName:"みかん", keyCheck:false],
-            [keyName:"バナナ", keyCheck:true],
-            [keyName:"パイナップル", keyCheck:false],
+            [keyName: "りんご", keyCheck: false],
+            [keyName: "みかん", keyCheck: false],
+            [keyName: "バナナ", keyCheck: true],
+            [keyName: "パイナップル", keyCheck: false],
         ]
     }
  
@@ -47,38 +47,37 @@ class TableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath)
-    {
-        print("accessoryButtonTappedForRowWithIndexPath")
-        editIndexPath = indexPath
-        performSegue(withIdentifier: "EditSegue", sender: indexPath)
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+            print("accessoryButtonTappedForRowWithIndexPath")
+            editIndexPath = indexPath
+            performSegue(withIdentifier: "EditSegue", sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let add = (segue.destination as? UINavigationController)?.topViewController as? AddItemViewController {
             switch segue.identifier ?? "" {
             case "AddSegue":
-                add.mode = AddItemViewController.Mode.Add
+                add.mode = .add
                 break
             case "EditSegue":
-                add.mode = AddItemViewController.Mode.Edit
                 if let indexPath = sender as? IndexPath {
                     let item = self.items[indexPath.row]
-                    add.name = (item[keyName] as? String) ?? ""
+                    let name = (item[keyName] as? String) ?? ""
+                    add.mode = .edit(name: name)
                 }
             default:
-                break;
+                break
             }
         }
     }
     
-    @IBAction func exitFromAddByCancel(segue:UIStoryboardSegue) {
+    @IBAction func exitFromAddByCancel(segue: UIStoryboardSegue) {
         
     }
 
-    @IBAction func exitFromAddBySave(segue:UIStoryboardSegue) {
+    @IBAction func exitFromAddBySave(segue: UIStoryboardSegue) {
         if let add = segue.source as? AddItemViewController {
-            let item:Dictionary<String,Any> = [keyName: add.nameTextField.text as Any, keyCheck:false]
+            let item:[String: Any] = [keyName: add.nameTextField.text as Any, keyCheck: false]
             self.items.append(item)
             let indexPath = IndexPath(row: self.items.count - 1, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
