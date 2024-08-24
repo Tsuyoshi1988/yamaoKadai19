@@ -21,8 +21,6 @@ class TableViewController: UITableViewController {
         ]
     }
  
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -62,8 +60,6 @@ class TableViewController: UITableViewController {
             editIndexPath = indexPath
             performSegue(withIdentifier: "EditSegue", sender: indexPath)
     }
-    
-    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
