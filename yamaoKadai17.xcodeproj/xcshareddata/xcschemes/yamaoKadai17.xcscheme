@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "196033AA2C3D6B8E006D311A"
-               BuildableName = "yamaoKadai16.app"
-               BlueprintName = "yamaoKadai16"
-               ReferencedContainer = "container:yamaoKadai16.xcodeproj">
+               BuildableName = "yamaoKadai17.app"
+               BlueprintName = "yamaoKadai17"
+               ReferencedContainer = "container:yamaoKadai17.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "196033AA2C3D6B8E006D311A"
-            BuildableName = "yamaoKadai16.app"
-            BlueprintName = "yamaoKadai16"
-            ReferencedContainer = "container:yamaoKadai16.xcodeproj">
+            BuildableName = "yamaoKadai17.app"
+            BlueprintName = "yamaoKadai17"
+            ReferencedContainer = "container:yamaoKadai17.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "196033AA2C3D6B8E006D311A"
-            BuildableName = "yamaoKadai16.app"
-            BlueprintName = "yamaoKadai16"
-            ReferencedContainer = "container:yamaoKadai16.xcodeproj">
+            BuildableName = "yamaoKadai17.app"
+            BlueprintName = "yamaoKadai17"
+            ReferencedContainer = "container:yamaoKadai17.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

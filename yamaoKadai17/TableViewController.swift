@@ -12,7 +12,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         self.items = [
             [keyName: "りんご", keyCheck: false],
             [keyName: "みかん", keyCheck: false],
@@ -21,6 +21,8 @@ class TableViewController: UITableViewController {
         ]
     }
  
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -40,6 +42,14 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let check = self.items[indexPath.row][keyCheck] as? Bool {
             self.items[indexPath.row][keyCheck] = !check
@@ -52,6 +62,9 @@ class TableViewController: UITableViewController {
             editIndexPath = indexPath
             performSegue(withIdentifier: "EditSegue", sender: indexPath)
     }
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let add = (segue.destination as? UINavigationController)?.topViewController as? AddItemViewController {
