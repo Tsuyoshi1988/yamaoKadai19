@@ -3,10 +3,12 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    let keyName = "Name"
-    let keyCheck = "Check"
-    
-    var items: [[String: Any]] = []
+    struct Item {
+        var name: String
+        var check: Bool
+    }
+
+     var items: [Item] = []
     
     var editIndexPath: IndexPath?
     
@@ -14,10 +16,10 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
        
         self.items = [
-            [keyName: "りんご", keyCheck: false],
-            [keyName: "みかん", keyCheck: false],
-            [keyName: "バナナ", keyCheck: true],
-            [keyName: "パイナップル", keyCheck: false],
+            Item(name: "りんご", check: false),
+            Item(name: "みかん", check: false),
+            Item(name: "バナナ", check: true),
+            Item(name: "パイナップル", check: true),
         ]
     }
  
@@ -31,11 +33,11 @@ class TableViewController: UITableViewController {
         let item = self.items[indexPath.row]
         
         cell.checkImageView.image = nil
-        if item[keyCheck] as? Bool == true {
+         if item.check {
             cell.checkImageView.image = UIImage(named: "check")
         }
         
-        cell.nameLabel.text = (item[keyName] as? String) ?? ""
+        cell.nameLabel.text = item.name
         
         return cell
     }
@@ -47,12 +49,10 @@ class TableViewController: UITableViewController {
         }
     }
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let check = self.items[indexPath.row][keyCheck] as? Bool {
-            self.items[indexPath.row][keyCheck] = !check
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        self.items[indexPath.row].check = !self.items[indexPath.row].check
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -71,8 +71,7 @@ class TableViewController: UITableViewController {
             case "EditSegue":
                 if let indexPath = sender as? IndexPath {
                     let item = self.items[indexPath.row]
-                    let name = (item[keyName] as? String) ?? ""
-                    add.mode = .edit(name: name)
+                    add.mode = .edit(name: item.name)
                 }
             default:
                 break
@@ -86,7 +85,7 @@ class TableViewController: UITableViewController {
 
     @IBAction func exitFromAddBySave(segue: UIStoryboardSegue) {
         if let add = segue.source as? AddItemViewController {
-            let item:[String: Any] = [keyName: add.nameTextField.text as Any, keyCheck: false]
+            let item = Item(name: add.nameTextField.text!, check: false)
             self.items.append(item)
             let indexPath = IndexPath(row: self.items.count - 1, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
@@ -100,7 +99,7 @@ class TableViewController: UITableViewController {
     @IBAction func exitFromEditBySave(segue:UIStoryboardSegue) {
         if let add = segue.source as? AddItemViewController {
             if let indexPath = editIndexPath {
-                self.items[indexPath.row][keyName] = add.nameTextField.text
+                self.items[indexPath.row].name = add.nameTextField.text ?? ""
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
             }
         }
