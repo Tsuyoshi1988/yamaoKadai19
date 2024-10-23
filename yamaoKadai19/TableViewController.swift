@@ -7,6 +7,34 @@ struct Item {
 
 class TableViewController: UITableViewController {
 
+    // タイププロパティ
+    static let UserDefaultsKeyItems = "Items"
+    
+    struct Item {
+        var name:String
+        var check:Bool
+        
+        // タイププロパティ
+        static let KeyName = "Name"
+        
+        // タイププロパティ
+        static let KeyCheck = "Check"
+        
+        func dictionary() -> NSDictionary {
+            return [Item.KeyName:name, Item.KeyCheck:check]
+        }
+        
+        init(dic:NSDictionary) {
+            name = (dic[Item.KeyName] as? String) ?? ""
+            check = (dic[Item.KeyCheck] as? Bool) ?? false
+        }
+        
+        init(name:String, check:Bool) {
+            self.name = name
+            self.check = check
+        }
+    }
+    
     var items: [Item] = []
 
     var editIndexPath: IndexPath?
@@ -20,6 +48,8 @@ class TableViewController: UITableViewController {
             Item(name: "バナナ", check: true),
             Item(name: "パイナップル", check: true)
         ]
+        
+        loadItems()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,12 +75,16 @@ class TableViewController: UITableViewController {
         if editingStyle == .delete {
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            saveItems()
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         items[indexPath.row].check = !self.items[indexPath.row].check
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        saveItems()
     }
 
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -58,6 +92,7 @@ class TableViewController: UITableViewController {
             performSegue(withIdentifier: "EditSegue", sender: indexPath)
     }
 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let add = (segue.destination as? UINavigationController)?.topViewController as? AddItemViewController {
             switch segue.identifier ?? "" {
@@ -67,7 +102,8 @@ class TableViewController: UITableViewController {
             case "EditSegue":
                 if let indexPath = sender as? IndexPath {
                     let item = self.items[indexPath.row]
-                    add.mode = .edit(item: item)
+                    //add.mode = .edit(item: item)
+                    add.name = item.name
                 }
             default:
                 break
@@ -85,6 +121,8 @@ class TableViewController: UITableViewController {
             self.items.append(item)
             let indexPath = IndexPath(row: self.items.count - 1, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
+            
+            saveItems()
         }
     }
 
@@ -97,7 +135,33 @@ class TableViewController: UITableViewController {
             if let indexPath = editIndexPath {
                 self.items[indexPath.row].name = add.nameTextField.text ?? ""
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                
+                saveItems()
             }
         }
+    }
+    
+    func loadItems() {
+        let ud = UserDefaults.standard
+        if let dics = ud.array(forKey: TableViewController.UserDefaultsKeyItems) {
+            self.items = []
+            for dic in dics {
+                if let d = dic as? NSDictionary {
+                    let item = Item(dic: d)
+                    self.items.append(item)
+                }
+            }
+        }
+    }
+    
+    func saveItems() {
+        let dics = NSMutableArray()
+        for item in items {
+            let dic = item.dictionary()
+            dics.add(dic)
+        }
+        let ud = UserDefaults.standard
+        ud.set(dics, forKey: TableViewController.UserDefaultsKeyItems)
+        ud.synchronize()
     }
 }

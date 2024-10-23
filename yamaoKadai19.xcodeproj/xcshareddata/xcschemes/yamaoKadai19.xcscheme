@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1540"
+   LastUpgradeVersion = "1600"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "196033AA2C3D6B8E006D311A"
-               BuildableName = "yamaoKadai18.app"
-               BlueprintName = "yamaoKadai18"
-               ReferencedContainer = "container:yamaoKadai18.xcodeproj">
+               BuildableName = "yamaoKadai19.app"
+               BlueprintName = "yamaoKadai19"
+               ReferencedContainer = "container:yamaoKadai19.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "196033AA2C3D6B8E006D311A"
-            BuildableName = "yamaoKadai18.app"
-            BlueprintName = "yamaoKadai18"
-            ReferencedContainer = "container:yamaoKadai18.xcodeproj">
+            BuildableName = "yamaoKadai19.app"
+            BlueprintName = "yamaoKadai19"
+            ReferencedContainer = "container:yamaoKadai19.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "196033AA2C3D6B8E006D311A"
-            BuildableName = "yamaoKadai18.app"
-            BlueprintName = "yamaoKadai18"
-            ReferencedContainer = "container:yamaoKadai18.xcodeproj">
+            BuildableName = "yamaoKadai19.app"
+            BlueprintName = "yamaoKadai19"
+            ReferencedContainer = "container:yamaoKadai19.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

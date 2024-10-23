@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		196033AB2C3D6B8E006D311A /* yamaoKadai18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yamaoKadai18.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		196033AB2C3D6B8E006D311A /* yamaoKadai19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yamaoKadai19.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		196033AE2C3D6B8E006D311A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		196033B02C3D6B8E006D311A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		196033B22C3D6B8E006D311A /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		196033A22C3D6B8E006D311A = {
 			isa = PBXGroup;
 			children = (
-				196033AD2C3D6B8E006D311A /* yamaoKadai18 */,
+				196033AD2C3D6B8E006D311A /* yamaoKadai19 */,
 				196033AC2C3D6B8E006D311A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,12 +52,12 @@
 		196033AC2C3D6B8E006D311A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				196033AB2C3D6B8E006D311A /* yamaoKadai18.app */,
+				196033AB2C3D6B8E006D311A /* yamaoKadai19.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		196033AD2C3D6B8E006D311A /* yamaoKadai18 */ = {
+		196033AD2C3D6B8E006D311A /* yamaoKadai19 */ = {
 			isa = PBXGroup;
 			children = (
 				196033AE2C3D6B8E006D311A /* AppDelegate.swift */,
@@ -70,15 +70,15 @@
 				196033B92C3D6B8F006D311A /* LaunchScreen.storyboard */,
 				196033BC2C3D6B8F006D311A /* Info.plist */,
 			);
-			path = yamaoKadai18;
+			path = yamaoKadai19;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		196033AA2C3D6B8E006D311A /* yamaoKadai18 */ = {
+		196033AA2C3D6B8E006D311A /* yamaoKadai19 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 196033BF2C3D6B8F006D311A /* Build configuration list for PBXNativeTarget "yamaoKadai18" */;
+			buildConfigurationList = 196033BF2C3D6B8F006D311A /* Build configuration list for PBXNativeTarget "yamaoKadai19" */;
 			buildPhases = (
 				196033A72C3D6B8E006D311A /* Sources */,
 				196033A82C3D6B8E006D311A /* Frameworks */,
@@ -89,9 +89,9 @@
 			);
 			dependencies = (
 			);
-			name = yamaoKadai18;
+			name = yamaoKadai19;
 			productName = yamaoKadai14;
-			productReference = 196033AB2C3D6B8E006D311A /* yamaoKadai18.app */;
+			productReference = 196033AB2C3D6B8E006D311A /* yamaoKadai19.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 196033A62C3D6B8E006D311A /* Build configuration list for PBXProject "yamaoKadai18" */;
+			buildConfigurationList = 196033A62C3D6B8E006D311A /* Build configuration list for PBXProject "yamaoKadai19" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				196033AA2C3D6B8E006D311A /* yamaoKadai18 */,
+				196033AA2C3D6B8E006D311A /* yamaoKadai19 */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -326,7 +327,7 @@
 				DEVELOPMENT_TEAM = UVM8H8F4N8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = yamaoKadai18/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -355,7 +356,7 @@
 				DEVELOPMENT_TEAM = UVM8H8F4N8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = yamaoKadai18/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -377,7 +378,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		196033A62C3D6B8E006D311A /* Build configuration list for PBXProject "yamaoKadai18" */ = {
+		196033A62C3D6B8E006D311A /* Build configuration list for PBXProject "yamaoKadai19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				196033BD2C3D6B8F006D311A /* Debug */,
@@ -386,7 +387,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		196033BF2C3D6B8F006D311A /* Build configuration list for PBXNativeTarget "yamaoKadai18" */ = {
+		196033BF2C3D6B8F006D311A /* Build configuration list for PBXNativeTarget "yamaoKadai19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				196033C02C3D6B8F006D311A /* Debug */,
